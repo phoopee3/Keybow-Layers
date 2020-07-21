@@ -25,7 +25,7 @@ layer[0] = {}
 layer[0][0] = orange
 layer[0][1] = orange
 layer[0][2] = orange
-layer[0][3] = black
+layer[0][3] = blue_light
 layer[0][4] = orange
 layer[0][5] = blue_light
 layer[0][6] = purple
@@ -106,17 +106,6 @@ function handle_key_00(pressed)
     if active_layer == 2 then
         keybow.text([[layer 2, key 00]])
     end
-    -- if pressed then
-    --     if active_layer == 0 then
-    --         keybow.text([[layer 0, key 00]])
-    --     end
-    --     if active_layer == 1 then
-    --         keybow.text([[layer 1, key 00]])
-    --     end
-    --     if active_layer == 2 then
-    --         keybow.text([[layer 2, key 00]])
-    --     end
-    -- end
 end
 
 function handle_key_01(pressed)
@@ -134,8 +123,13 @@ end
 -- row
 
 function handle_key_03(pressed)
+    if active_layer == 0 then
+        keybow.set_modifier(keybow.LEFT_CTRL, keybow.KEY_DOWN)
+        keybow.set_key("`", pressed)
+        keybow.set_modifier(keybow.LEFT_CTRL, keybow.KEY_UP)
+    end
     if active_layer == 2 then
-        keybow.set_media_key(keybow.MEDIA_VOL_DOWN, pressed)
+        keybow.set_media_key(keybow.MEDIA_PREV, pressed)
     end
 end
 
@@ -144,7 +138,7 @@ function handle_key_04(pressed)
         keybow.set_key(keybow.UP_ARROW, pressed)
     end
     if active_layer == 2 then
-        keybow.set_media_key(keybow.MEDIA_MUTE, pressed)
+        keybow.set_media_key(keybow.MEDIA_PLAYPAUSE, pressed)
     end
 end
 
@@ -157,7 +151,7 @@ function handle_key_05(pressed)
         keybow.set_modifier(keybow.LEFT_CTRL, keybow.KEY_UP)
     end
     if active_layer == 2 then
-        keybow.set_media_key(keybow.MEDIA_VOL_UP, pressed)
+        keybow.set_media_key(keybow.MEDIA_NEXT, pressed)
     end
 end
 
@@ -170,7 +164,7 @@ function handle_key_06(pressed)
         keybow.set_modifier(keybow.LEFT_META, keybow.KEY_UP)        
     end
     if active_layer == 2 then
-        keybow.set_media_key(keybow.MEDIA_PREV, pressed)
+        keybow.set_media_key(keybow.MEDIA_VOL_DOWN, pressed)
     end
 end
 
@@ -181,7 +175,7 @@ function handle_key_07(pressed)
         keybow.set_modifier(keybow.LEFT_META, keybow.KEY_UP)
     end
     if active_layer == 2 then
-        keybow.set_media_key(keybow.MEDIA_PLAYPAUSE, pressed)
+        keybow.set_media_key(keybow.MEDIA_MUTE, pressed)
     end
 end
 
@@ -192,7 +186,7 @@ function handle_key_08(pressed)
         keybow.set_modifier(keybow.LEFT_META, keybow.KEY_UP)
     end
     if active_layer == 2 then
-        keybow.set_media_key(keybow.MEDIA_NEXT, pressed)
+        keybow.set_media_key(keybow.MEDIA_VOL_UP, pressed)
     end
 end
 
